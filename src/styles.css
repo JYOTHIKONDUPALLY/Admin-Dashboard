@@ -1,3 +1,4 @@
+/* styles.css */
 * {
   margin: 0;
   padding: 0;
@@ -27,11 +28,12 @@ body {
 
   /* Dark mode color variables */
   --bg-color-dark: #242d49;
-  --text-color-dark: #1a1e36;
+  --text-color-dark: #ffffff;
   --sidebar-bg-dark: #1a1e36;
   --sidebar-text-dark: #ffffff;
   --sidebar-hover-dark: #2a2e4a;
 }
+
 .App {
   color: var(--black);
   background: linear-gradient(
@@ -47,17 +49,19 @@ body {
 }
 
 .App-Glass {
+  display: grid;
   height: 97%;
   width: 97%;
   background-color: var(--glass);
   border-radius: 2rem;
   gap: 16px;
+  grid-template-columns: 11rem auto 20rem;
   overflow: hidden;
 }
 
 @media screen and (max-width: 1200px) {
   .App-Glass {
-    grid-template-columns: 30% 50% auto;
+    grid-template-columns: 10% 50% auto;
     overflow-y: scroll;
   }
 }

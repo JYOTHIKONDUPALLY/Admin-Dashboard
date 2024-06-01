@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  height: 150px;
+  width: 250px;
+  border: 2px solid #ccc;
+  padding: 2rem;
+  border-radius: 0.7rem;
+  position: relative;
+  -webkit-box-shadow: 10px 17px 26px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 17px 26px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 17px 26px -14px rgba(0, 0, 0, 0.75);
+}
+
+.card:hover {
+  box-shadow: none;
+  cursor: pointer;
+}
+.icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.number {
+  font-size: 2rem;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+}

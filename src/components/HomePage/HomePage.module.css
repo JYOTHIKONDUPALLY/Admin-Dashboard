@@ -1,0 +1,4 @@
+.HomePage {
+  display: grid;
+  grid-template-columns: 11rem auto 20rem;
+}

@@ -1,7 +1,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px;
   align-items: center;
   position: relative;
 }
@@ -15,15 +15,11 @@
   margin-top: 30px;
 }
 
-.logo > span > span {
-  color: var(--pink);
-}
-
 .navbar {
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
-  padding-top: 2rem;
+  margin-top: 1rem;
+  padding: 1rem;
   gap: 2rem;
   background-color: azure;
   border-radius: 1rem;
@@ -31,14 +27,12 @@
 
 .navitem {
   display: flex;
-  gap: 1rem;
   height: 2.5rem;
-  margin-left: 2rem;
   align-items: center;
   margin: 5px;
   font-size: 14px;
   border-radius: 0.7rem;
-  transition: all 300ms ease;
+  transition: all 100ms ease;
   position: relative;
   padding: 5px;
   width: 100%;
@@ -46,8 +40,7 @@
 
 .active {
   display: flex;
-  gap: 1rem;
-  height: 2.5rem;
+  height: 100%;
   align-items: center;
   margin: 5px;
   font-size: 14px;
@@ -57,15 +50,5 @@
   position: relative;
   background: var(--activeItem);
   margin-left: 0;
-}
-
-.active::before {
-  content: "";
-  width: 8px;
-  height: 100%;
-  background-color: var(--pink);
-  margin-right: calc(1rem - 8px);
-}
-.navitem:hover {
-  cursor: pointer;
+  color: var(--active-text);
 }
