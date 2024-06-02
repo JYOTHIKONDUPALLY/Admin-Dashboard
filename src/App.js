@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./styles.css";
+import "./App.css";
 import LoginPage from "./components/LoginPage/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
+import InventoryPage from "./components/InventoryPage/InventoryPage";
 import {
   BrowserRouter as Router,
   Route,
@@ -40,34 +41,46 @@ function App() {
       <CssBaseline />
       <div className="App">
         <Router>
-          <div className={isAuthenticated ? "App-Glass" : ""}>
-            <Routes>
-              <Route
-                path="/login"
-                element={
-                  isAuthenticated ? (
-                    <Navigate to="/" />
-                  ) : (
-                    <LoginPage onLogin={handleLogin} />
-                  )
-                }
-              />
-              <Route
-                path="/"
-                element={
-                  isAuthenticated ? (
-                    <HomePage
-                      onLogout={handleLogout}
-                      isDarkMode={isDarkMode}
-                      setIsDarkMode={setIsDarkMode}
-                    />
-                  ) : (
-                    <Navigate to="/login" />
-                  )
-                }
-              />
-            </Routes>
-          </div>
+          <Routes>
+            <Route
+              path="/login"
+              element={
+                isAuthenticated ? (
+                  <Navigate to="/" />
+                ) : (
+                  <LoginPage onLogin={handleLogin} />
+                )
+              }
+            />
+            <Route
+              path="/"
+              element={
+                isAuthenticated ? (
+                  <HomePage
+                    onLogout={handleLogout}
+                    isDarkMode={isDarkMode}
+                    setIsDarkMode={setIsDarkMode}
+                  />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
+            <Route
+              path="/inventory"
+              element={
+                isAuthenticated ? (
+                  <InventoryPage
+                    onLogout={handleLogout}
+                    isDarkMode={isDarkMode}
+                    setIsDarkMode={setIsDarkMode}
+                  />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
+          </Routes>
         </Router>
       </div>
     </ThemeProvider>

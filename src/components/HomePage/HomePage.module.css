@@ -1,4 +1,18 @@
 .HomePage {
   display: grid;
-  grid-template-columns: 11rem auto 20rem;
+  grid-template-columns: 11rem auto;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .HomePage {
+    grid-template-columns: 1fr;
+    position: absolute;
+    left: 10px;
+    width: 100%;
+  }
+  .MainSection {
+    position: absolute;
+    top: 80px;
+  }
 }

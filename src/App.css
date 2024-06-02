@@ -32,6 +32,7 @@ body {
   --sidebar-text-dark: #ffffff;
   --sidebar-hover-dark: #2a2e4a;
 }
+
 .App {
   color: var(--black);
   background: linear-gradient(
@@ -40,33 +41,9 @@ body {
     #ffcfd1 51.55%,
     #f3c6f1 90.85%
   );
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.App-Glass {
-  height: 97%;
-  width: 97%;
-  background-color: var(--glass);
-  border-radius: 2rem;
-  gap: 16px;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 1200px) {
-  .App-Glass {
-    grid-template-columns: 30% 50% auto;
-    overflow-y: scroll;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .App-Glass {
-    grid-template-columns: 1fr;
-  }
-  .App {
-    justify-content: start;
-  }
+  position: relative;
+  width: 100%;
 }

@@ -1,0 +1,19 @@
+[
+    {
+        "id": 3,
+        "customer": { "name": "Customer 3", "email": "customer3@example.com", "location_name": "City C", "type": "C" },
+        "items": [{ "sku_id": 223, "name": "Product C", "price": 30, "quantity": 3 }],
+        "totalPrice": 90,
+        "invoice_no": "Invoice - 123456",
+        "invoice_date": "2024-05-23"
+      },
+      {
+        "id": 4,
+        "customer": { "name": "Customer 4", "email": "customer4@example.com", "location_name": "City D", "type": "C" },
+        "items": [{ "sku_id": 224, "name": "Product D", "price": 40, "quantity": 2 }],
+        "totalPrice": 80,
+        "invoice_no": "Invoice - 123457",
+        "invoice_date": "2024-05-22"
+      }
+
+]

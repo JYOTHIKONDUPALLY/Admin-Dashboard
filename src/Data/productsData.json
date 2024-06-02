@@ -1,0 +1,140 @@
+[
+    {
+    "id": 210,
+    "display_id": 9,
+    "owner": 1080,
+    "name": "Zeus' Lightning Bolt",
+    "category": "The god of War",
+    "characteristics": "Electrifying power",
+    "features": "Can summon lightning",
+    "brand": "Olympus Artifacts",
+    "sku": [
+      {
+        "id": 249,
+        "selling_price": 100,
+        "max_retail_price": 120,
+        "amount": 1,
+        "unit": "piece",
+        "quantity_in_inventory": 10,
+        "product": 210
+      }
+    ],
+    "updated_on": "2024-05-24T12:46:41.995873Z",
+    "adding_date": "2024-05-24T12:46:41.995828Z"
+  },
+  {
+    "id": 211,
+    "display_id": 10,
+    "owner": 1081,
+    "name": "Ares' Battle Axe",
+    "category": "The god of War",
+    "characteristics": "Sharp and deadly",
+    "features": "Can cleave through armor",
+    "brand": "Olympus Artifacts",
+    "sku": [
+      {
+        "id": 250,
+        "selling_price": 150,
+        "max_retail_price": 170,
+        "amount": 1,
+        "unit": "piece",
+        "quantity_in_inventory": 5,
+        "product": 211
+      }
+    ],
+    "updated_on": "2024-05-24T12:46:41.995873Z",
+    "adding_date": "2024-05-24T12:46:41.995828Z"
+  },
+  {
+    "id": 212,
+    "display_id": 11,
+    "owner": 1082,
+    "name": "Hades' Helm",
+    "category": "The god of War",
+    "characteristics": "Grants invisibility",
+    "features": "Allows the wearer to move unseen",
+    "brand": "Olympus Artifacts",
+    "sku": [
+      {
+        "id": 251,
+        "selling_price": 200,
+        "max_retail_price": 220,
+        "amount": 1,
+        "unit": "piece",
+        "quantity_in_inventory": 3,
+        "product": 212
+      }
+    ],
+    "updated_on": "2024-05-24T12:46:41.995873Z",
+    "adding_date": "2024-05-24T12:46:41.995828Z"
+  },
+  {
+    "id": 213,
+    "display_id": 12,
+    "owner": 1083,
+    "name": "Park",
+    "category": "The god of War",
+    "characteristics": "Electrifying power",
+    "features": "Can summon lightning",
+    "brand": "Olympus Artifacts",
+    "sku": [
+      {
+        "id": 252,
+        "selling_price": 110,
+        "max_retail_price": 120,
+        "amount": 3,
+        "unit": "piece",
+        "quantity_in_inventory": 10,
+        "product": 210
+      }
+    ],
+    "updated_on": "2024-05-24T12:46:41.995873Z",
+    "adding_date": "2024-05-24T12:46:41.995828Z"
+  },
+  {
+    "id": 214,
+    "display_id": 13,
+    "owner": 1084,
+    "name": "Axe",
+    "category": "The god of War",
+    "characteristics": "Sharp and deadly",
+    "features": "Can cleave through armor",
+    "brand": "Olympus Artifacts",
+    "sku": [
+      {
+        "id": 253,
+        "selling_price": 150,
+        "max_retail_price": 170,
+        "amount": 1,
+        "unit": "piece",
+        "quantity_in_inventory": 5,
+        "product": 211
+      }
+    ],
+    "updated_on": "2024-05-24T12:46:41.995873Z",
+    "adding_date": "2024-05-24T12:46:41.995828Z"
+  },
+  {
+    "id": 215,
+    "display_id": 14,
+    "owner": 1085,
+    "name": "Helm",
+    "category": "The god of War",
+    "characteristics": "Grants invisibility",
+    "features": "Allows the wearer to move unseen",
+    "brand": "Olympus Artifacts",
+    "sku": [
+      {
+        "id": 254,
+        "selling_price": 200,
+        "max_retail_price": 220,
+        "amount": 1,
+        "unit": "piece",
+        "quantity_in_inventory": 3,
+        "product": 212
+      }
+    ],
+    "updated_on": "2024-05-24T12:46:41.995873Z",
+    "adding_date": "2024-05-24T12:46:41.995828Z"
+  }
+]

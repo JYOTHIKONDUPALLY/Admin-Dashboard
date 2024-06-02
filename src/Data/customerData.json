@@ -1,0 +1,98 @@
+
+[
+  {
+    "id": 10,
+    "customer": 11909,
+    "customer_profile": {
+      "id": 11909,
+      "name": "John",
+      "color": [
+        34,
+        139,
+        34
+      ],
+      "email": "john_doe@example.com",
+      "pincode": "Delhi",
+      "location_name": "Delhi, India",
+      "type": "C",
+      "profile_pic": null,
+      "gst": ""
+    }
+  },
+  {
+    "id": 11,
+    "customer": 11910,
+    "customer_profile": {
+      "id": 11910,
+      "name": "Sita",
+      "color": [
+        255,
+        165,
+        0
+      ],
+      "email": "sita@example.com",
+      "pincode": "Bengaluru",
+      "location_name": "Bengaluru, Karnataka, India",
+      "type": "C",
+      "profile_pic": null,
+      "gst": ""
+    }
+  },
+  {
+    "id": 12,
+    "customer": 11911,
+    "customer_profile": {
+      "id": 11911,
+      "name": "Krishna",
+      "color": [
+        0,
+        0,
+        255
+      ],
+      "email": "krishna@example.com",
+      "pincode": "Chennai",
+      "location_name": "Chennai, Tamil Nadu, India",
+      "type": "C",
+      "profile_pic": null,
+      "gst": ""
+    }
+  },
+  {
+    "id": 13,
+    "customer": 11912,
+    "customer_profile": {
+      "id": 11912,
+      "name": "Lakshmi",
+      "color": [
+        255,
+        192,
+        203
+      ],
+      "email": "lakshmi@example.com",
+      "pincode": "Hyderabad",
+      "location_name": "Hyderabad, Telangana, India",
+      "type": "C",
+      "profile_pic": null,
+      "gst": ""
+    }
+  },
+  {
+    "id": 14,
+    "customer": 11913,
+    "customer_profile": {
+      "id": 11913,
+      "name": "Ganesha",
+      "color": [
+        128,
+        0,
+        128
+      ],
+      "email": "ganesha@example.com",
+      "pincode": "Kolkata",
+      "location_name": "Kolkata, West Bengal, India",
+      "type": "C",
+      "profile_pic": null,
+      "gst": ""
+    }
+  }
+]
