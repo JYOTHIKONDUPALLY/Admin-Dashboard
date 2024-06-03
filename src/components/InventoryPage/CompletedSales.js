@@ -9,11 +9,19 @@ import {
   Paper,
   IconButton,
   Tooltip,
+  Box,
+  useMediaQuery,
 } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import { jsPDF } from "jspdf";
+import { useTheme } from "@mui/system";
 
 const CompletedSales = ({ data }) => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMediumScreen =
+    useMediaQuery(theme.breakpoints.down("md")) && !isSmallScreen;
+
   const handleDownloadPdf = (rowData) => {
     const pdf = new jsPDF();
     let yPos = 10;
@@ -60,12 +68,14 @@ const CompletedSales = ({ data }) => {
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
-            <TableCell>Customer</TableCell>
-            <TableCell>Email</TableCell>
+            {!isSmallScreen && <TableCell>Customer</TableCell>}
+            {!isSmallScreen && !isMediumScreen && <TableCell>Email</TableCell>}
             <TableCell>Items</TableCell>
-            <TableCell>Total Price</TableCell>
-            <TableCell>Invoice No</TableCell>
-            <TableCell>Invoice Date</TableCell>
+            {!isSmallScreen && !isMediumScreen && (
+              <TableCell>Total Price</TableCell>
+            )}
+            {!isSmallScreen && <TableCell>Invoice No</TableCell>}
+            {!isSmallScreen && <TableCell>Invoice Date</TableCell>}
             <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -73,24 +83,30 @@ const CompletedSales = ({ data }) => {
           {data.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.id}</TableCell>
-              <TableCell>
-                <Tooltip
-                  title={`${row.customer.location_name} (${row.customer.type})`}
-                >
-                  <span>{row.customer.name}</span>
-                </Tooltip>
-              </TableCell>
-              <TableCell>{row.customer.email}</TableCell>
+              {!isSmallScreen && (
+                <TableCell>
+                  <Tooltip
+                    title={`${row.customer.location_name} (${row.customer.type})`}
+                  >
+                    <span>{row.customer.name}</span>
+                  </Tooltip>
+                </TableCell>
+              )}
+              {!isSmallScreen && !isMediumScreen && (
+                <TableCell>{row.customer.email}</TableCell>
+              )}
               <TableCell>
                 {row.items.map((item) => (
-                  <div key={item.sku_id}>
+                  <Box key={item.sku_id}>
                     {item.name} (SKU: {item.sku_id})
-                  </div>
+                  </Box>
                 ))}
               </TableCell>
-              <TableCell>{row.totalPrice}</TableCell>
-              <TableCell>{row.invoice_no}</TableCell>
-              <TableCell>{row.invoice_date}</TableCell>
+              {!isSmallScreen && !isMediumScreen && (
+                <TableCell>{row.totalPrice}</TableCell>
+              )}
+              {!isSmallScreen && <TableCell>{row.invoice_no}</TableCell>}
+              {!isSmallScreen && <TableCell>{row.invoice_date}</TableCell>}
               <TableCell>
                 <IconButton onClick={() => handleDownloadPdf(row)}>
                   <DownloadIcon />

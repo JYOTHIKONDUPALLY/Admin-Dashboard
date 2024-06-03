@@ -8,16 +8,21 @@ import {
   Modal,
   TextField,
   IconButton,
+  RadioGroup,
+  Radio,
+  FormControlLabel,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ActiveSales from "./ActiveSales";
 import CompletedSales from "./CompletedSales";
 import axios from "axios";
 import ProductList from "./ProductsList";
+
 const InventoryPage = () => {
   const [selectedTab, setSelectedTab] = useState("active");
   const [openModal, setOpenModal] = useState(false);
   const [activeSales, setActiveSales] = useState([]);
+  const [paid, setPaid] = useState("unPaid");
   const [completedSales, setCompletedSales] = useState([]);
   const [newSale, setNewSale] = useState({
     customerId: "",
@@ -60,6 +65,10 @@ const InventoryPage = () => {
     setNewSale({ ...newSale, [name]: value });
   };
 
+  const handlePaymentChange = (e) => {
+    setPaid(e.target.value);
+  };
+
   const handleSubmitNewSale = () => {
     const newId = activeSales.length + completedSales.length + 1;
     const newSaleEntry = {
@@ -80,7 +89,7 @@ const InventoryPage = () => {
       ],
       totalPrice: newSale.price * newSale.quantity,
       lastModified: new Date().toISOString().split("T")[0],
-      paid: false,
+      paid: paid === "paid", // Set paid status based on selected option
     };
     setActiveSales([...activeSales, newSaleEntry]);
     handleCloseModal();
@@ -96,6 +105,7 @@ const InventoryPage = () => {
       invoiceNo: sale.invoice_no || "",
       invoiceDate: sale.invoice_date || sale.lastModified,
     });
+    setPaid(sale.paid ? "paid" : "unpaid"); // Set paid status based on editing sale
     handleOpenModal();
   };
 
@@ -118,6 +128,7 @@ const InventoryPage = () => {
             ],
             totalPrice: newSale.price * newSale.quantity,
             lastModified: newSale.invoiceDate,
+            paid: paid === "paid", // Set paid status based on selected option
           }
         : sale
     );
@@ -146,6 +157,7 @@ const InventoryPage = () => {
       totalPrice: newSale.price * newSale.quantity,
       invoice_no: newSale.invoiceNo,
       invoice_date: newSale.invoiceDate,
+      paid: paid === "paid", // Set paid status based on selected option
     };
     setCompletedSales([...completedSales, completedSale]);
     setActiveSales(updatedActiveSales);
@@ -161,6 +173,8 @@ const InventoryPage = () => {
     fetchActiveSalesData();
     fetchCompletedSalesData();
   }, []);
+
+  useEffect(() => {}, [activeSales]);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -168,13 +182,25 @@ const InventoryPage = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Inventory Management
           </Typography>
-          <Button color="inherit" onClick={() => handleTabChange("active")}>
+          <Button
+            color="inherit"
+            sx={{ marginRight: "10px" }}
+            onClick={() => handleTabChange("active")}
+          >
             Active Sale Orders
           </Button>
-          <Button color="inherit" onClick={() => handleTabChange("completed")}>
+          <Button
+            sx={{ marginRight: "10px" }}
+            color="inherit"
+            onClick={() => handleTabChange("completed")}
+          >
             Completed Sale Orders
           </Button>
-          <Button color="inherit" onClick={handleOpenModal}>
+          <Button
+            sx={{ marginRight: "10px" }}
+            color="inherit"
+            onClick={handleOpenModal}
+          >
             New Sale Order
           </Button>
         </Toolbar>
@@ -257,6 +283,19 @@ const InventoryPage = () => {
             value={newSale.invoiceDate}
             onChange={handleInputChange}
           />
+
+          <RadioGroup
+            value={paid}
+            onChange={handlePaymentChange}
+            sx={{ flexDirection: "row" }}
+          >
+            <FormControlLabel
+              value="unpaid"
+              control={<Radio />}
+              label="Unpaid"
+            />
+            <FormControlLabel value="paid" control={<Radio />} label="Paid" />
+          </RadioGroup>
           <Box sx={{ mt: 2, display: "flex", justifyContent: "space-between" }}>
             {editingSale ? (
               <>
@@ -290,7 +329,12 @@ const InventoryPage = () => {
           </Box>
         </Box>
       </Modal>
-      <ProductList />
+      <div style={{ display: "none" }}>
+        <ProductList
+          activeSales={activeSales}
+          setActiveSales={setActiveSales}
+        />
+      </div>
     </Box>
   );
 };

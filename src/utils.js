@@ -11,8 +11,8 @@ export const SidebarData = [
   { name: "Home", icon: <HomeIcon /> },
   { name: "Inventory", icon: <Inventory2Icon /> },
   { name: "Products", icon: <StoreMallDirectoryIcon /> },
-  { name: "SignOut", icon: <ExitToAppIcon /> },
   { name: "Settings", icon: <SettingsIcon /> },
+  { name: "SignOut", icon: <ExitToAppIcon /> },
 ];
 
 export const CardsData = [

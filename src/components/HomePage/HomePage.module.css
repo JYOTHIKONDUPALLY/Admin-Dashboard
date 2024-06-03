@@ -2,17 +2,38 @@
   display: grid;
   grid-template-columns: 11rem auto;
   width: 100%;
+  height: 100vh; /* Full viewport height for the grid */
+}
+
+.left {
+  height: 100vh; /* Fixed height for the left sidebar */
+  overflow-y: auto; /* Ensures the sidebar itself can scroll if its content overflows */
+  position: sticky; /* Keeps the sidebar fixed during scrolling */
+  top: 0;
+}
+
+.right {
+  overflow-y: auto; /* Allows the right content area to scroll if its content overflows */
+  height: 100vh; /* Full viewport height */
 }
 
 @media screen and (max-width: 900px) {
   .HomePage {
-    grid-template-columns: 1fr;
-    position: absolute;
-    left: 10px;
+    grid-template-columns: 1fr; /* Single column layout on small screens */
+    position: relative; /* Changed to relative for proper positioning */
     width: 100%;
+    height: auto; /* Allow height to adjust based on content */
   }
-  .MainSection {
-    position: absolute;
-    top: 80px;
+  .left {
+    height: auto; /* Adjust height for small screens */
+    overflow-y: visible; /* Ensure the left side doesn't scroll on small screens */
+    position: relative; /* Remove fixed positioning */
+  }
+  .right {
+    position: relative; /* Changed to relative for proper positioning */
+    top: 80px; /* Adjust top position */
+    overflow-y: auto; /* Ensure overflow still works on small screens */
+    height: auto; /* Allow height to adjust based on content */
+    padding: 10px; /* Optional padding for better spacing */
   }
 }

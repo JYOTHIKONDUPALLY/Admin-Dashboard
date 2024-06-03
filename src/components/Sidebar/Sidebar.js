@@ -18,14 +18,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { SidebarData } from "../../utils";
 import styles from "./Sidebar.module.css";
-import { useNavigate } from "react-router-dom"; // Correct import
 
-const Sidebar = ({ onLogout, isDarkMode, setIsDarkMode }) => {
+const Sidebar = ({ isDarkMode, setIsDarkMode, selected, setSelected }) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(0);
-  const navigate = useNavigate(); // Use the hook
 
   const handleToggleDrawer = () => {
     setIsOpen(!isOpen);
@@ -35,14 +32,8 @@ const Sidebar = ({ onLogout, isDarkMode, setIsDarkMode }) => {
     setIsDarkMode(!isDarkMode);
   };
 
-  const handleSelect = (index, name) => {
-    setSelected(index);
-    if (name === "SignOut") {
-      onLogout();
-    }
-    if (name === "Inventory") {
-      navigate("/inventory"); // Use navigate function
-    }
+  const handleSelect = (name) => {
+    setSelected(name);
   };
 
   return (
@@ -57,11 +48,16 @@ const Sidebar = ({ onLogout, isDarkMode, setIsDarkMode }) => {
               left: "30px",
               zIndex: theme.zIndex.appBar + 1,
               fontSize: "2rem",
-              padding: "12px",
+              padding: "10px",
+              border: `2px solid ${
+                theme.palette.mode === "light"
+                  ? theme.palette.primary.main
+                  : theme.palette.primary.main
+              }`,
               color:
                 theme.palette.mode === "light"
                   ? theme.palette.primary.main
-                  : theme.palette.background.default,
+                  : theme.palette.primary.main,
             }}
           >
             {isOpen ? <ChevronLeftIcon /> : <MenuIcon />}
@@ -158,10 +154,13 @@ const SidebarContent = ({
         {SidebarData.map((ele, index) => (
           <ListItemButton
             key={index}
-            onClick={() => handleSelect(index, ele.name)}
+            onClick={() => handleSelect(ele.name)}
             className={styles.navitem}
             sx={{
-              gap: 0,
+              color: "black", // Set the text color to black
+              "& .MuiListItemIcon-root": {
+                color: "black", // Set the icon color to black
+              },
               "&:hover, &.Mui-selected": {
                 backgroundColor: theme.palette.action.hover,
                 display: "flex",
@@ -176,10 +175,14 @@ const SidebarContent = ({
                 marginLeft: 0,
                 color: "var(--active-text)",
               },
+              "&:hover .MuiListItemIcon-root, &.Mui-selected .MuiListItemIcon-root":
+                {
+                  color: "black", // Ensure the icon color stays black on hover and when selected
+                },
             }}
-            selected={selected === index}
+            selected={selected === ele.name}
           >
-            <ListItemIcon sx={{ color: "inherit" }}>{ele.icon}</ListItemIcon>
+            <ListItemIcon>{ele.icon}</ListItemIcon>
             <ListItemText primary={ele.name} />
           </ListItemButton>
         ))}

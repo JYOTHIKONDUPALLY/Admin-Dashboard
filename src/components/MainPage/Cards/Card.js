@@ -14,7 +14,7 @@ function Card({ title, number, icon }) {
       strokeWidth: "12px",
     },
     text: {
-      fill: "black",
+      fill: "#ff919d",
       fontSize: "25px",
       fontWeight: 600,
     },
