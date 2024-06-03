@@ -15,4 +15,9 @@ The inventory dashboard project is a web application built using React and Mater
 
 This inventory dashboard project aims to streamline inventory management tasks, enhance order processing efficiency, and provide a user-friendly experience for administrators managing the inventory.
 
+For accessing the dashboard, please use the following credentials:
+
+**Username**: user  
+**Password**: password
+
 **Deployment Link:** [Inventory Dashboard Deployment](https://admin-dashboard-one-brown.vercel.app/)
